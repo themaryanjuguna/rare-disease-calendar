@@ -1,34 +1,32 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RareDiseaseService } from '../../services/rare-disease.service';
-import { RareDisease } from '../../models/rare-disease';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-rare-disease-form',
+  standalone: true, // If this is a standalone component
+  imports: [CommonModule, ReactiveFormsModule], // Import ReactiveFormsModule here
   templateUrl: './rare-disease-form.component.html',
   styleUrls: ['./rare-disease-form.component.css']
 })
 export class RareDiseaseFormComponent {
-  diseaseForm: FormGroup;
+  rareDiseaseForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private diseaseService: RareDiseaseService) {
-    this.diseaseForm = this.fb.group({
+  constructor(private fb: FormBuilder) {
+    this.rareDiseaseForm = this.fb.group({
       occasion: ['', Validators.required],
       rareCondition: ['', Validators.required],
       date: ['', Validators.required],
       updatedBy: ['', Validators.required],
-      emailAddress: ['', [Validators.required, Validators.email]]
+      emailAddress: ['', [Validators.required, Validators.email]],
     });
   }
 
-  ngOnInit(): void {}
-
-  onSubmit(): void {
-    if (this.diseaseForm.valid) {
-      const disease: RareDisease = this.diseaseForm.value;
-      this.diseaseService.addDisease(disease).subscribe(() => {
-        // Handle success (e.g., navigate back to the list)
-      });
+  onSubmit() {
+    if (this.rareDiseaseForm.valid) {
+      console.log(this.rareDiseaseForm.value);
+    } else {
+      console.error('Form is invalid');
     }
   }
 }

@@ -3,11 +3,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { RareDiseaseFormComponent } from "./components/rare-disease-form/rare-disease-form.component";
 
 
 @Component({
   selector: 'app-root',
-  imports: [MatTableModule, MatPaginatorModule, MatSortModule],
+  imports: [MatTableModule, MatPaginatorModule, MatSortModule, RareDiseaseFormComponent ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
