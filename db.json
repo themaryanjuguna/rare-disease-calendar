@@ -2,10 +2,11 @@
     "rareDiseases": [
       {
         "id": 1,
-        "name": "World Narcolepsy Day",
+        "occasion": "World Narcolepsy Day",
+        "rareCondition": "Narcolepsy",
         "date": "2025-09-22",
-        "updated by":"Maryanne Nyambura",
-        "email":"themaryanjuguna@gmail.com"
+        "updatedBy":"Maryanne Nyambura",
+        "emailAddress":"themaryanjuguna@gmail.com"
       }
     ]
   }
