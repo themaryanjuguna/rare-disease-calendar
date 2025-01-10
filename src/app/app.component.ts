@@ -1,12 +1,42 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [MatTableModule, MatPaginatorModule, MatSortModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'rare-disease-calendar';
+  displayedColumns: string[] = [
+    'id',
+    'occasion',
+    'rareCondition',
+    'date',
+    'updatedBy',
+    'emailAddress',
+  ];
+  
+  // Assign rareDiseases to MatTableDataSource
+  dataSource = new MatTableDataSource([
+    {
+      id: 1,
+      occasion: 'World Narcolepsy Day',
+      rareCondition: 'Narcolepsy',
+      date: '2025-09-22',
+      updatedBy: 'Maryanne Nyambura',
+      emailAddress: 'themaryanjuguna@gmail.com',
+    },
+  ]);
+
+  // Filter and paginator example (optional)
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 }

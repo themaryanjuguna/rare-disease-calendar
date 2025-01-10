@@ -1,6 +1,19 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
+import { provideRouter, Route } from '@angular/router';
 import { AppComponent } from './app/app.component';
+import { RareDiseaseListComponent } from './app/components/rare-disease-list/rare-disease-list.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+const routes: Routes = [
+  { path: 'diseases', component: RareDiseaseListComponent },
+  { path: '', redirectTo: '/diseases', pathMatch: 'full' },
+  { path: '**', redirectTo: '/diseases' }
+];
+
+
+  @NgModule({
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
+  })
+  export class AppRoutingModule {}

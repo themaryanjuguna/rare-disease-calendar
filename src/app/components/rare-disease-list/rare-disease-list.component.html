@@ -1,1 +1,41 @@
-<p>rare-disease-list works!</p>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name of the Awareness Day </th>
+      <td mat-cell *matCellDef="let element"> {{ element.occasion }} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name of the Rare Condition </th>
+      <td mat-cell *matCellDef="let element"> {{ element.rareCondition }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let element"> {{ element.date }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="updatedBy">
+      <th mat-header-cell *matHeaderCellDef> Updated By </th>
+      <td mat-cell *matCellDef="let element"> {{ element.updatedBy }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email Address</th>
+      <td mat-cell *matCellDef="let element"> {{ element.emailAddress }} </td>
+    </ng-container>
+  
+    <!-- <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button (click)="editDisease(element)">Edit</button>
+        <button mat-button (click)="deleteDisease(element.id)">Delete</button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+  
+  <button mat-raised-button color="primary" (click)="addDisease()">Add Disease</button> -->
+  
