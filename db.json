@@ -1,0 +1,13 @@
+{
+    "rareDiseases": [
+      {
+        "id": 1,
+        "name": "World Narcolepsy Day",
+        "date": "2025-09-22",
+        "country": "Global",
+        "institution": "Rare Disease Institute",
+        "doctor": "Dr. Smith"
+      }
+    ]
+  }
+  
